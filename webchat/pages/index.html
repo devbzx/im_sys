@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+	<link href="../css/header.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../fontico/iconfont.css">
+	<style>
+		*{
+			touch-action: none;
+		}
+	</style>
+</head>
+<body>
+	<!-- 标题栏 -->
+	<header class="mui-bar mui-bar-nav title">
+		<h1 class="mui-title title-color" id="title">聊天系统</h1>
+	</header>
+	<!-- 主体部分 -->
+	<div class="mui-content">
+		
+	</div>
+	<!-- 底部选项卡 -->
+	<nav class="mui-bar mui-bar-tab">
+		<a class="mui-tab-item mui-active" tabindex="0">
+			<span class="mui-icon iconfont icon-liaotian"></span>
+			<span class="mui-tab-label">聊天</span>
+		</a>
+		<a class="mui-tab-item" tabindex="1">
+			<span class="mui-icon iconfont icon-tongxunlu" ></span>
+			<span class="mui-tab-label">通讯录</span>
+		</a>
+		<a class="mui-tab-item" tabindex="2">
+			<span class="mui-icon iconfont icon-faxian"></span>
+			<span class="mui-tab-label">发现</span>
+		</a>
+		<a class="mui-tab-item" tabindex="3">
+			<span class="mui-icon iconfont icon-buoumaotubiao03"></span>
+			<span class="mui-tab-label">我</span>
+		</a>
+	</nav>
+	<script type="text/javascript" charset="utf-8">
+	  	mui.init();
+		// 定义用于存储选项卡页面的数组
+		var subPage = [
+			{
+				pageId:"child-page/chatlist.html",
+				url:"child-page/chatlist.html"
+			},
+			{
+				pageId:"child-page/contact.html",
+				url:"child-page/contact.html"
+			},
+			{
+				pageId:"child-page/discover.html",
+				url:"child-page/discover.html"
+			},
+			{
+				pageId:"child-page/me.html",
+				url:"child-page/me.html"
+			}
+		];
+		//设置页面打开的样式
+		var pageStyle = {
+			top:'0px',
+			bottom:'50px'
+		};
+		mui.plusReady(function () {
+			netChangeSwitch();
+			//系统状态栏颜色
+			plus.navigator.setStatusBarStyle("light");
+			//系统状态栏颜色
+		    plus.navigator.setStatusBarBackground("#FF4136");
+			// 选项卡代码
+			//获取当前webview对象
+			var indexWebView = plus.webview.currentWebview();
+			// 将数组中的页面循环向当前主页webview 追加子页的4个webview对象
+			for(var i=0;i<subPage.length;i++){
+				//将每次循环产生的页面信息创建为webview窗口对象
+				var wv = plus.webview.create(subPage[i].url,subPage[i].pageId,pageStyle);
+				//隐藏
+				wv.hide();
+				//追加子窗口对象至主窗口对象中
+				indexWebView.append(wv);
+			}
+			//设置默认窗口页面
+			plus.webview.show(subPage[0].pageId);
+			//批量绑定tab事件
+			mui(".mui-bar-tab").on("tap","a",function(){
+				var tabindex = this.getAttribute("tabindex");
+				//显示点击的tab选项卡所对应的页面
+				plus.webview.show(subPage[tabindex].pageId,"fade-in",200);
+				//隐藏不需要的页面
+				for(var i = 0;i<subPage.length;i++){
+					if(i!=tabindex){
+						plus.webview.hide(subPage[i].pageId,"fade-out",200);
+					}
+				}
+			});
+			//延时加载
+			setTimeout("initData()",1000);
+		});
+		//预加载
+		function initData(){
+			var chatlist = plus.webview.getWebviewById("child-page/chatlist.html");
+			mui.fire(chatlist,"refresh");
+			var me = plus.webview.getWebviewById("child-page/me.html");
+			mui.fire(me,"refresh");
+		}
+		//监听网络状态的函数
+		function netChangeSwitch(){
+			document.addEventListener("netchange",function(){
+				//获取网络状态
+				var connectionStatus = plus.networkinfo.getCurrentType();
+				if(connectionStatus!=0&&connectionStatus!=1){
+					var title = document.getElementById("title");
+					title.innerHTML = "聊天系统";
+				}else{
+					var title = document.getElementById("title");
+					title.innerHTML = "聊天系统"+"(网络未连接)";
+				}
+			});
+		}
+	</script>
+</body>
+</html>
