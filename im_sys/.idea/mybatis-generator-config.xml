@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisGeneratorConfiguration">
+    <option name="credentials">
+      <map>
+        <entry key="jdbc:mysql://39.101.170.233:3306/im_bird?serverTimeZone=UTC">
+          <value>
+            <Credential>
+              <option name="username" value="root" />
+            </Credential>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="tableConfigs">
+      <map>
+        <entry key="chat_msg">
+          <value>
+            <TableConfig>
+              <option name="basePackage" value="com.lhq" />
+              <option name="comment" value="true" />
+              <option name="domainName" value="ChatMsg" />
+              <option name="domainPackage" value="com.lhq.domain" />
+              <option name="exampleName" value="ChatMsgExample" />
+              <option name="examplePackage" value="com.lhq.example" />
+              <option name="examplePostfix" value="Example" />
+              <option name="mapperName" value="ChatMsgMapper" />
+              <option name="mapperPackage" value="com.lhq.mapper" />
+              <option name="mapperPostfix" value="Mapper" />
+              <option name="moduleRootPath" value="$PROJECT_DIR$" />
+              <option name="name" value="chat_msg" />
+              <option name="primaryKey" value="id" />
+              <option name="resourcePath" value="src/main/resources" />
+              <option name="sourcePath" value="src/main/java" />
+              <option name="tableName" value="chat_msg" />
+              <option name="xmlPackage" value="mapper" />
+            </TableConfig>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

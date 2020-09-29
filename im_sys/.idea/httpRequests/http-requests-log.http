@@ -1,0 +1,102 @@
+POST http://localhost:8080/im_sys/user/myFriends?userId=200915BH5975XCSW
+
+<> 2020-09-17T025456.200.json
+
+###
+
+POST http://localhost:8080/im_sys/user/myFriends?userId=200915BH5975XCSW
+
+<> 2020-09-17T112957.200.json
+
+###
+
+GET http://localhost:8080/im_sys/user/myFriends?userId=200915BH5975XCSW
+
+<> 2020-09-17T112917.200.json
+
+###
+
+GET http://localhost:8080/im_sys/user/myFriends?userId=200915BH5975XCSW
+
+<> 2020-09-17T112859.404.json
+
+###
+
+GET http://user/myFriends
+
+###
+
+GET http://localhost:8080/im_sys/user/getMyFriends?userId=200915BH5975XCSW
+
+<> 2020-09-17T112759.200.json
+
+###
+
+GET http://localhost:8080/im_sys/user/getMyFriends?userId=200915BH5975XCSW
+
+<> 2020-09-17T085205.200.json
+
+###
+
+POST http://localhost:8080/im_sys/user/getMyFriends?userId=200915BH5975XCSW
+
+###
+
+POST http://localhost:8080/im_sys/user/getMyFriends?userId=200915BH5975XCSW
+
+<> 2020-09-17T084947.200.json
+
+###
+
+POST http://localhost:8080/im_sys/user/getMyFriends?userId=200915BH5975XCSW
+
+<> 2020-09-16T063918.404.json
+
+###
+
+POST http://localhost:8080/im_sys/user/getMyFriends?userId=200915BH5975XCSW
+
+<> 2020-09-16T063811.404.json
+
+###
+
+POST http://localhost:8080/user/getMyFriends?userId=200915BH5975XCSW
+
+<> 2020-09-16T063744.404.html
+
+###
+
+POST http://localhost:8080/user/getMyFriends?userId=200915BH5975XCSW
+
+<> 2020-09-16T063636.404.html
+
+###
+
+GET http://user/getMyFriends
+
+###
+
+POST http://localhost:8080/user/getMyFriends?userId=200915BH5975XCSW
+
+<> 2020-09-16T063522.404.html
+
+###
+
+POST http://localhost:8080/user/myFriends?userId=200915BH5975XCSW
+
+<> 2020-09-16T063418.404.html
+
+###
+
+POST http://localhost:8080/user/myFriends?userId=200915BH5975XCSW
+
+<> 2020-09-16T063040.404.html
+
+###
+
+POST http://localhost/user/myFriends?userId=200915BH5975XCSW
+
+<> 2020-09-16T063011.404.html
+
+###
+
